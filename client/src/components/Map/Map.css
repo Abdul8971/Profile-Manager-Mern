@@ -1,12 +1,13 @@
 .map-container {
-  height: 400px;
-  width: 400px;
+  height: 380px;
+  width: 800px;
   border-radius: 20px;
+  margin: 10px;
 }
 
 @media (max-width: 500px) {
   .map-container{
-    height: 400px;
+    height: 370px;
     width: 350px;
   }
 }

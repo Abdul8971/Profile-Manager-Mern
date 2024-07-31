@@ -1,12 +1,12 @@
-// src/components/Map.js
+// src/components/Map/MapComponent.js
 import React, { useRef, useEffect } from "react";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import "./Map.css";
 
-mapboxgl.accessToken = add_mapbox_token_here;
+mapboxgl.accessToken = "add_mapBox_token_here";
 
-const MapComponent = ({ longitude = 77.209, latitude = 28.6139 }) => {
+const MapComponent = ({ longitude, latitude }) => {
   const mapContainerRef = useRef(null);
   const markerRef = useRef(null);
 
@@ -25,7 +25,7 @@ const MapComponent = ({ longitude = 77.209, latitude = 28.6139 }) => {
       .addTo(map);
 
     return () => map.remove();
-  }, []);
+  }, [longitude, latitude]);
 
   useEffect(() => {
     if (markerRef.current) {

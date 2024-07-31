@@ -1,4 +1,5 @@
-import { React, useContext, useState, useEffect } from "react";
+// src/components/ProfileDetails/ProfileDetails.js
+import React, { useContext, useState, useEffect } from "react";
 import styles from "./ProfileDetails.module.css";
 import MapComponent from "../Map/MapComponent";
 import Geocoder from "../Map/Geocoder";
@@ -6,7 +7,7 @@ import { ProfileContext } from "../../contexts/ProfileContext";
 import { useParams } from "react-router-dom";
 
 const ProfileDetails = () => {
-  const [singleProfile, setSingleProfile] = useState("");
+  const [singleProfile, setSingleProfile] = useState({});
   const { profiles } = useContext(ProfileContext);
   const { id } = useParams();
 
@@ -16,6 +17,7 @@ const ProfileDetails = () => {
       setSingleProfile(profile);
     }
   }, [id, profiles]);
+
   return (
     <>
       <div className={styles.profileContainer}>
@@ -31,13 +33,13 @@ const ProfileDetails = () => {
               <p>{singleProfile.description}</p>
             </div>
             <p className={styles.profileLocation}>
-              <b>Location</b>:{singleProfile.location}
+              <b>Location:</b> {singleProfile.location}
             </p>
           </div>
         </div>
       </div>
       <div className={styles.mapComponent}>
-        <MapComponent />
+        <Geocoder location={singleProfile.location} />
       </div>
     </>
   );
