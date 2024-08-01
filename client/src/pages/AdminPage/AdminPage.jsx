@@ -21,10 +21,12 @@ function AdminPage() {
           </div>
         </Link>
         <div className={styles.allUsers}>
-          {profiles.map((profile, index) => {
+          {profiles.map((profile) => {
             return (
-              <div key={index} className={styles.profileCard}>
-                <VisibilityIcon className={styles.eyeIcon} />
+              <div key={profile._id} className={styles.profileCard}>
+                <Link to={`/ProfileDetails/${profile._id}`}>
+                  <VisibilityIcon className={styles.eyeIcon} />
+                </Link>
                 <img
                   src={profile.imageURL}
                   alt={`${profile.userName}'s profile`}
