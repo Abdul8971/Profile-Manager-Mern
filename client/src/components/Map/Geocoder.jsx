@@ -15,7 +15,7 @@ const Geocoder = ({ location = "Pune" }) => {
         const response = await axios.get(
           `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
             location
-          )}.json?access_token=pk.eyJ1IjoiYWJkdWw4OTcxIiwiYSI6ImNsejlpdGdoMjA1a3QycnM4bWZxd3J1NG0ifQ.2ytGDy9McgoM68Bt0-ZB1g`
+          )}.json?access_token=${"add_mapBox_token_here"}`
         );
         const { features } = response.data;
         if (features.length > 0) {
